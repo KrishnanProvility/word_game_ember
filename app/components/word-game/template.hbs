@@ -1,0 +1,28 @@
+<header>
+  <div class="header">
+    <h1>Word Game</h1>
+  </div>
+</header>
+
+<div class="start-btn">
+  <button type="button" {{on "click" this.startGame}}>Start</button>
+</div>
+
+<div class="head-table">
+  {{!-- template-lint-disable table-groups --}}
+  <table class="table">
+    {{#each this.tableData as |row|}}
+      <tr>
+        {{#each row as |cell|}}
+          <td style="background-color: {{cell.color}};">{{cell.letter}}</td>
+        {{/each}}
+      </tr>
+    {{/each}}
+  </table>
+</div>
+
+<div class="input-box">
+  <label>WORD</label>
+  <input type="text" class="inputValue" maxlength="5" {{on "input" this.updateInput}} value={{this.inputWord}}>
+  <button type="button" {{on "click" this.wordGame}}>OK</button>
+</div>
